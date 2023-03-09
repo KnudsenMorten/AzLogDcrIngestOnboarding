@@ -19,36 +19,36 @@
 # Variables
 #------------------------------------------------------------------------------------------------------------
 
-  # DEMO
-
     # Azure App
-    $AzureAppName                          = "Demo - Automation - Log-Ingestion"
-    $AzAppSecretName                       = "Used for Log-Ingestion"                    # this is NOT the password, just name of secret
+    $AzureAppName                          = "XXX - Automation - Log-Ingestion"
+    $AzAppSecretName                       = "Used for Log-Ingestion"
 
     # Azure Active Directory (AAD)
-    $TenantId                              = "<put in your tenant id>"
+    $TenantId                              = "XXXXX"
 
     # Azure LogAnalytics
-    $LogAnalyticsSubscription              = "<put in the subscription where environment will be deployed>"
-    $LogAnalyticsResourceGroup             = "<put in the resource groups where LogAnalytics will be deployed>"  # sample "rg-logworkspaces"
-    $LoganalyticsWorkspaceName             = "<put in name of LogAnalytics workspace>" # sample: "log-platform-management-client-p"
-    $LoganalyticsLocation                  = "<put in region where environment will be deployed>" # sample: "westeurope"
+    $LogAnalyticsSubscription              = "xxx"
+    $LogAnalyticsResourceGroup             = "rg-logworkspaces"
+    $LoganalyticsWorkspaceName             = "log-platform-management-client-p"  # sample provided - just change to your needs
+    $LoganalyticsLocation                  = "westeurope"   # sample provided - just change to your needs
 
 
     # Azure Data Collection Endpoint
-    $AzDceName                             = "dce-" + $LoganalyticsWorkspaceName
-    $AzDceResourceGroup                    = "rg-dce-" + $LoganalyticsWorkspaceName
+    $AzDceName                             = "dce-" + $LoganalyticsWorkspaceName    # sample provided - just change to your needs
+    $AzDceResourceGroup                    = "rg-dce-" + $LoganalyticsWorkspaceName   # sample provided - just change to your needs
 
     # Azure Data Collection Rules
-    $AzDcrResourceGroup                    = "rg-dcr-" + $LoganalyticsWorkspaceName
-    $AzDcrPrefixClient                     = "clt"
+    $AzDcrResourceGroup                    = "rg-dcr-" + $LoganalyticsWorkspaceName  # sample provided - just change to your needs
+    $AzDcrPrefixClient                     = "clt"  # Dcr related to either client or server - typically clt = client - and srv = server. easy sorting
 
     # Azure Workbooks & Dashboards
-    $TemplateCategory                      = "Demo2 IT Operation Security Templates"
-    $WorkbookDashboardResourceGroup        = "rg-dashboards-workbooks-demo2"
+    $TemplateCategory                      = "Demo IT Operation Security Templates (V2)"    # sample provided - just change to your needs
+    $WorkbookDashboardResourceGroup        = "rg-dashboards-workbooks-demo"     # sample provided - just change to your needs
 
-    $WorkBook_Repository_Path              = ".\AZURE_WORKBOOKS_LATEST_RELEASE_V2"
-    $Dashboard_Repository_Path             = ".\AZURE_DASHBOARDS_LATEST_RELEASE_v2"
+    # Paths to local workbooks and dashboards - do not change !
+    $ScriptDirectory                       = $PSScriptRoot
+    $WorkBook_Repository_Path              = "$($ScriptDirectory)\AZURE_WORKBOOKS_LATEST_RELEASE_V2"
+    $Dashboard_Repository_Path             = "$($ScriptDirectory)\AZURE_DASHBOARDS_LATEST_RELEASE_v2"
     
 
 #------------------------------------------------------------------------------------------------------------
@@ -56,11 +56,11 @@
 #------------------------------------------------------------------------------------------------------------
 
     Write-Output "Loading functions ... Please Wait !"
-    # Install-module Az
-    # Install-module Microsoft.Graph
-    # install-module Az.portal
-
     <#
+        Install-module Az
+        Install-module Microsoft.Graph
+        install-module Az.portal
+
         Import-module Az
         Import-module Az.Accounts
         Import-module Az.Resources
